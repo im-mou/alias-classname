@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "target": "es2020",
+    "module": "es2020",
+    "lib": ["es5", "es6", "DOM"],
+    "rootDir": "lib",
+    "outDir": "dist",
+    "moduleResolution": "node",
+    "declarationDir": "dist/types",
+    "declaration": true,
+    "sourceMap": true,
+    "esModuleInterop": true,
+    "strict": true,
+    "baseUrl": "types",
+    "typeRoots": ["types"]
+  },
+  "include": ["lib/**/*"],
+  "exclude": ["node_modules", "dist"]
+}
