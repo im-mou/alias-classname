@@ -10,10 +10,8 @@
     "declaration": true,
     "sourceMap": true,
     "esModuleInterop": true,
-    "strict": true,
-    "baseUrl": "types",
-    "typeRoots": ["types"]
+    "strict": true
   },
-  "include": ["lib/**/*"],
+  "include": ["lib/**/*", "__tests__/*"],
   "exclude": ["node_modules", "dist"]
 }
