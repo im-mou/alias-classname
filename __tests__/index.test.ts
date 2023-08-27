@@ -33,8 +33,8 @@ describe("alias-classname", () => {
 
   it("Should filter out all the duplicated classes", () => {
     const instance = aliasClassName();
-    const classes = instance("a", "a", "b", "b");
-    expect(classes).toEqual("a b");
+    const classes = instance("a", "a", "b", "b", "c", "a");
+    expect(classes).toEqual("a b c");
   });
 
   it("should register default aliases", () => {

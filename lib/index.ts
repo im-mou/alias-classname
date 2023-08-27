@@ -11,14 +11,13 @@ const erode = (input: string, q = 1) => input.substring(q, input.length - q);
 const arrayToDict = (array: string[]) =>
   array.reduce((acc, v) => ({ ...acc, [v]: v }), {});
 
-const validateInputs = (inputs: unknown[]): string[] => [
-  // remove duplicates using Set
-  ...new Set(
-    inputs.filter(
-      (input) => typeof input === "string" && input.trim().length > 0
-    ) as string[]
-  ),
-];
+const validateInputs = (inputs: unknown[]): string[] =>
+  inputs.filter(
+    (input, index) =>
+      typeof input === "string" &&
+      input.trim().length > 0 &&
+      inputs.indexOf(input) === index
+  ) as string[];
 
 const resolveAliases =
   (aliasesStore: AliasesStore) => (target: Record<string, string>) => {
