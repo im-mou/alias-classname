@@ -4,7 +4,7 @@ type AliasesStore = Record<string, string>;
 type ClassesStore = Record<string, string>;
 
 const aliasReferenceRegex = /\(\w*\)/g;
-const delimiterRegex = /:/g;
+const aliasDelimiterRegex = /:/g;
 
 const trim = (input: string) => input.trim();
 const erode = (input: string, q = 1) => input.substring(q, input.length - q);
@@ -39,7 +39,7 @@ const resolveAliases =
   };
 
 const getAliasClassPair = (input: string) => {
-  const delimiter = input.match(delimiterRegex);
+  const delimiter = input.match(aliasDelimiterRegex);
   // "a:b:c" is a no-no.
   if (!delimiter || delimiter.length > 1) return null;
 
@@ -86,7 +86,7 @@ const aliasClassName = (...aliases: string[]) => {
     return validatedClassnames
       .map(
         (classname) =>
-          classesStore[classname].split(delimiterRegex).reverse()[0]
+          classesStore[classname].split(aliasDelimiterRegex).reverse()[0]
       )
       .join(" ");
   };
