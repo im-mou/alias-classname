@@ -1,22 +1,20 @@
 <br />
 <br />
 <div align="center">
-<img width="300" alt="alias-classname" src="https://raw.githubusercontent.com/im-mou/alias-classname/main/logo.png" />
+<img width="300" alt="alias-classname" src="https://raw.githubusercontent.com/im-mou/alias-classname/master/logo.png" />
 </div>
 <br />
 <br />
 
 ---
 
-[![version][version-badge]][package] [![downloads][downloads-badge]][npmtrends] [![MIT License][license-badge]][license] [![PRs Welcome][prs-badge]][prs]
-
 # alias-classname
 
-This utility module provides a flexible way to define aliases for class names and resolve those aliases in order to generate a final class name string.
+This utility module provides a flexible way to define aliases for CSS classes and resolve those aliases in order to generate a final classes string.
 
 ## How It Works
 
-The `aliasClassName` function returned by this module serves as the main interface. It allows you to define aliases, register them, and resolve class names using the registered aliases. This utility handles the process of alias resolution and class name concatenation.
+The `aliasClassName` function returned by this module serves as the main interface. It allows you to define aliases and resolve classes using the registered aliases. This utility handles the process of alias resolution and concatenation of classes.
 
 ## Installation
 
@@ -44,7 +42,7 @@ npm install alias-classname
 
 2. Define your aliases and resolve class names:
 
-   Example 1:
+   Basic usage:
 
    ```javascript
    const classes = aliasClassName();
@@ -53,10 +51,9 @@ npm install alias-classname
    // outputs: "css my-class my-class__modifier"
    ```
 
-   Example 2:
+   With default aliases:
 
    ```javascript
-   // with default aliases
    const classes = aliasClassName("base:component", "mod:container");
 
    const classname = classes("(base)", "body:(base)__(mod)");
@@ -66,10 +63,9 @@ npm install alias-classname
    // outputs: "component__container--variant"
    ```
 
-   Example 3:
+   Default aliases can also be composed:
 
    ```javascript
-   // Default aliases can also be composed.
    const classes = aliasClassName(
      "base:component",
      "mod:(base)__container",
@@ -80,7 +76,7 @@ npm install alias-classname
    // outputs: "component component__container component__container--variant"
    ```
 
-   > Note: You're not required to use the [BEM naming convention](https://getbem.com/naming/). But it can be really helpful for that use case if you do so.
+   > You're not required to use the [BEM naming convention](https://getbem.com/naming/). But if you do, it can be really helpful for that use case.
 
 3. Debugging:
 
@@ -94,11 +90,11 @@ npm install alias-classname
 
 ## Problem
 
-When working on projects with complex CSS class naming conventions, managing CSS classes can become cumbersome. Especially when you need to apply multiple classes to elements, the resulting code can quickly become hard to read and maintain.
+When working on projects with complex CSS class naming conventions, managing them can become really cumbersome. Especially when you need to apply multiple classes to elements, the resulting code can quickly become hard to read and maintain.
 
 ## Solution
 
-The `aliasClassName` simplifies CSS classes management by allowing you to define aliases for longer class names or combinations. These aliases can then be easily used to generate the final class names string. This is particularly useful when you want to:
+The `aliasClassName` simplifies CSS classes management by allowing you to define aliases for longer class names. These aliases can then be easily used to generate the final joined class names string. This is particularly useful when you want to:
 
 - Maintain cleaner and more readable code by abstracting complex class names behind meaningful aliases.
 - Apply consistent and uniform class names throughout your project without repeating lengthy strings.
@@ -108,7 +104,7 @@ The `aliasClassName` simplifies CSS classes management by allowing you to define
 
 - `aliasClassName(...aliases: string[]): (classnames: unknown[]) => string`
 
-  This is the main function returned by the module. It takes aliases as arguments and returns a function to resolve class names. It allows you to register and resolve final class names based on the provided aliases and class names.
+  This is the main function returned by the module. It takes aliases as arguments and returns a function to resolve class names.
 
   - `(...classnames: unknown[]): string`
 
@@ -120,7 +116,7 @@ The `aliasClassName` simplifies CSS classes management by allowing you to define
 
 ## Terminology
 
-- **Aliases:** Shorter identifiers that can be used in place of longer class names or references.
+- **Aliases:** Shorter identifiers that can be used in place of longer class names.
 
 - **Class Names:** CSS class names or any string that you want to resolve and concatenate.
 
@@ -128,12 +124,12 @@ The `aliasClassName` simplifies CSS classes management by allowing you to define
 
 - Aliases should be provided as strings in the format:
   - `"alias:class-name"`.
-  - `"alias:(reference)__class-name"`.
+- An alias reference should be provided in the format:
+    - `"(alias)__class-name"`.
 - An alias must have been registered before it's referenced.
 - A redefinition of an existing alias will override its current value.
-- The module doesn't handle circular references in aliases.
-  - This is a big `"no:(no)"`.
-- The module provides basic alias resolution; it's not meant to handle complex scenarios.
+- Circular references or an alias that doesn't exist are not resolved.
+  - `"a:(a)"` will output `"(a)"`.
 
 ## Contributing
 
