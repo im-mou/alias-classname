@@ -5,7 +5,6 @@
     "moduleResolution": "node",
     "declarationDir": "dist/types",
     "declaration": true,
-    "sourceMap": true,
     "esModuleInterop": true,
     "strict": true
   },
