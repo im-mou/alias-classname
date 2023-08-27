@@ -2,15 +2,35 @@
   "name": "alias-classname",
   "description": "Create aliases for class names composition",
   "version": "0.0.1",
+  "keywords": [
+    "classname",
+    "alias",
+    "aliases",
+    "composition",
+    "css",
+    "bem",
+    "class",
+    "react",
+    "web"
+  ],
+  "homepage": "https://github.com/im-mou/alias-classname#readme",
+  "author": "Mohsin Riaz",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/im-mou/alias-classname.git"
+  },
   "files": [
     "dist"
   ],
-  "main": "./dist/alias-classname.umd.js",
-  "module": "./dist/alias-classname.umd.js",
+  "main": "./dist/index.umd.js",
+  "module": "./dist/index.umd.js",
   "exports": {
     ".": {
-      "import": "./dist/alias-classname.es.js",
-      "require": "./dist/alias-classname.umd.js"
+      "import": "./dist/index.es.js",
+      "require": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.umd.js"
+      }
     }
   },
   "scripts": {

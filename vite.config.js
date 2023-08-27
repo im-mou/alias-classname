@@ -7,7 +7,7 @@ export default defineConfig({
     lib: {
       entry: resolve(__dirname, "lib/index.ts"),
       name: "alias-classname",
-      fileName: (format) => `alias-classname.${format}.js`,
+      fileName: (format) => `index.${format}.js`,
     },
   },
   plugins: [dts()],
