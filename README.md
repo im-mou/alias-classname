@@ -4,9 +4,15 @@
 <img width="300" alt="alias-classname" src="https://raw.githubusercontent.com/im-mou/alias-classname/master/logo.png" />
 </div>
 <br />
-<br />
 
----
+<div align="center">
+
+![npm](https://img.shields.io/npm/v/alias-classname)
+![NPM](https://img.shields.io/npm/l/alias-classname)
+![npm bundle size](https://img.shields.io/bundlephobia/min/alias-classname)
+
+</div>
+<br />
 
 # alias-classname
 
@@ -125,7 +131,7 @@ The `aliasClassName` simplifies CSS classes management by allowing you to define
 - Aliases should be provided as strings in the format:
   - `"alias:class-name"`.
 - An alias reference should be provided in the format:
-    - `"(alias)__class-name"`.
+  - `"(alias)__class-name"`.
 - An alias must have been registered before it's referenced.
 - A redefinition of an existing alias will override its current value.
 - Circular references or an alias that doesn't exist are not resolved.
