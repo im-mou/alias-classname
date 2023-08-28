@@ -26,7 +26,7 @@ describe("alias-classname", () => {
       true,
       null,
       0,
-      234
+      234,
     );
     expect(classes).toEqual("class");
   });
@@ -43,7 +43,7 @@ describe("alias-classname", () => {
     expect(instance("(mod)")).toBe("modifier");
     expect(instance("(base)__(mod)")).toBe("class__modifier");
     expect(instance("(base)__(mod)", "(mod)", "q")).toBe(
-      "class__modifier modifier q"
+      "class__modifier modifier q",
     );
     expect(instance("(random)")).toBe("(random)");
   });
@@ -119,11 +119,11 @@ describe("alias-classname", () => {
         "base:class",
         "mod:(base)__modifier",
         "mod2:(mod)--variant",
-        "(mod2)--variant1"
+        "(mod2)--variant1",
       );
 
       expect(classes).toEqual(
-        "class class__modifier class__modifier--variant class__modifier--variant--variant1"
+        "class class__modifier class__modifier--variant class__modifier--variant--variant1",
       );
     });
   });

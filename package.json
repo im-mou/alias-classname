@@ -41,19 +41,26 @@
   "scripts": {
     "build": "rm -rf ./dist && rollup --config rollup.config.ts --configPlugin @rollup/plugin-typescript",
     "test": "vitest",
-    "coverage": "vitest run --coverage"
+    "coverage": "vitest run --coverage",
+    "lint": "eslint ./ --max-warnings=0",
+    "format": "prettier ./ --write"
   },
   "license": "MIT",
   "devDependencies": {
     "@rollup/plugin-typescript": "11.1.3",
+    "@typescript-eslint/eslint-plugin": "^6.4.0",
+    "@typescript-eslint/parser": "6.5.0",
     "@vitest/coverage-v8": "0.34.3",
     "esbuild": "0.19.2",
+    "eslint": "^8.0.1",
+    "eslint-config-prettier": "9.0.0",
+    "prettier": "3.0.2",
     "rollup": "3.28.1",
     "rollup-plugin-dts": "6.0.0",
     "rollup-plugin-esbuild": "5.0.0",
     "rollup-plugin-terser": "7.0.2",
     "tslib": "2.6.2",
-    "typescript": "^5.1.6",
+    "typescript": "*",
     "vitest": "0.34.3"
   }
 }

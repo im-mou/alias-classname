@@ -20,7 +20,7 @@ const validateInputs = (inputs: unknown[]): string[] =>
     (input, index) =>
       typeof input === "string" &&
       input.trim().length > 0 &&
-      inputs.indexOf(input) === index
+      inputs.indexOf(input) === index,
   ) as string[];
 
 const resolveAliases =
@@ -36,7 +36,7 @@ const resolveAliases =
         if (!aliasesStore[deParenthesisedAlias]) continue; // should this throw an error?
         target[key] = target[key].replace(
           aliasWithParentheses,
-          aliasesStore[deParenthesisedAlias]
+          aliasesStore[deParenthesisedAlias],
         );
       }
     }
@@ -60,7 +60,7 @@ const getAliasClassPair = (input: string) => {
 const registerAliases =
   (
     resolveAliasesFor: (store: Record<string, string>) => void,
-    aliasesStore: AliasesStore
+    aliasesStore: AliasesStore,
   ) =>
   (inputs: string[]) => {
     const validatedInput = validateInputs(inputs);
@@ -90,7 +90,7 @@ const aliasClassName = (...aliases: string[]) => {
     return validatedClassnames
       .map(
         (classname) =>
-          classesStore[classname].split(aliasDelimiterRegex).reverse()[0]
+          classesStore[classname].split(aliasDelimiterRegex).reverse()[0],
       )
       .join(" ");
   };
