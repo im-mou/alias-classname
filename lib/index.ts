@@ -26,18 +26,18 @@ const validateInputs = (inputs: unknown[]): string[] =>
 const resolveAliases =
   (aliasesStore: AliasesStore) => (target: Record<string, string>) => {
     for (const key in target) {
-      if (!Object.prototype.hasOwnProperty.call(target, key)) continue;
+      if (Object.prototype.hasOwnProperty.call(target, key)) {
+        const tokens = target[key].match(aliasReferenceRegex);
+        if (!tokens || !tokens.length) continue;
 
-      const tokens = target[key].match(aliasReferenceRegex);
-      if (!tokens || !tokens.length) continue;
-
-      for (const aliasWithParentheses of tokens) {
-        const deParenthesisedAlias = erode(aliasWithParentheses);
-        if (!aliasesStore[deParenthesisedAlias]) continue; // should this throw an error?
-        target[key] = target[key].replace(
-          aliasWithParentheses,
-          aliasesStore[deParenthesisedAlias],
-        );
+        for (const aliasWithParentheses of tokens) {
+          const deParenthesisedAlias = erode(aliasWithParentheses);
+          if (!aliasesStore[deParenthesisedAlias]) continue; // should this throw an error?
+          target[key] = target[key].replace(
+            aliasWithParentheses,
+            aliasesStore[deParenthesisedAlias],
+          );
+        }
       }
     }
   };
