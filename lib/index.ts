@@ -2,9 +2,13 @@
 
 type AliasesStore = Record<string, string>;
 type ClassesStore = Record<string, string>;
+type ResolveClassesFn = {
+  <R extends unknown[]>(...classnames: R): string;
+  debug: () => { aliases: AliasesStore; classes: ClassesStore };
+};
 
-const aliasReferenceRegex = /\(\w*\)/g;
 const aliasDelimiterRegex = /:/g;
+const aliasReferenceRegex = /\(\w*\)/g;
 
 const trim = (input: string) => input.trim();
 const erode = (input: string, q = 1) => input.substring(q, input.length - q);
@@ -76,7 +80,7 @@ const aliasClassName = (...aliases: string[]) => {
 
   if (aliases.length) register(aliases);
 
-  const resolveClasses = (...classnames: unknown[]) => {
+  const resolveClasses = <R extends unknown[]>(...classnames: R): string => {
     const validatedClassnames = validateInputs(classnames);
     Object.assign(classesStore, arrayToDict(validatedClassnames));
 
@@ -98,7 +102,8 @@ const aliasClassName = (...aliases: string[]) => {
     configurable: false,
   });
 
-  return resolveClasses;
+  return <ResolveClassesFn>resolveClasses;
 };
 
+export { aliasClassName };
 export default aliasClassName;
