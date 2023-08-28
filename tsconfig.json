@@ -1,13 +1,22 @@
 {
   "compilerOptions": {
-    "rootDir": "lib",
     "outDir": "dist",
     "moduleResolution": "node",
-    "declarationDir": "dist/types",
     "declaration": true,
     "esModuleInterop": true,
-    "strict": true
+    "strict": true,
+    "isolatedModules": false,
+    "module": "esnext",
+    "target": "esnext",
+    "lib": ["esnext"],
+    "noEmit": true,
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "skipLibCheck": true
   },
-  "include": ["lib/**/*", "__tests__/*"],
+  "include": ["lib/**/*", "__tests__/*", "rollup.config.ts"],
   "exclude": ["node_modules", "dist"]
 }
