@@ -5,13 +5,11 @@ on:
       - master
       - feature/*
       - fix/*
-      - release/*
   pull_request:
     branches:
       - master
       - feature/*
       - fix/*
-      - release/*
 permissions:
   contents: write
   pull-requests: write
@@ -26,7 +24,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 18.4.0
+          node-version: 18.17.1
       - name: Install dependencies
         run: yarn install --frozen-lockfile
       - name: Lint

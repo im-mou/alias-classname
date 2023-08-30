@@ -22,7 +22,7 @@ jobs:
         if: ${{ steps.release.outputs.release_created }}
       - uses: actions/setup-node@v3
         with:
-          node-version: 18.4.0
+          node-version: 18.17.1
           registry-url: "https://registry.npmjs.org"
         if: ${{ steps.release.outputs.release_created }}
       - run: yarn install --frozen-lockfile
