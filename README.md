@@ -23,16 +23,16 @@
 
 A small utility for defining aliases for CSS classes, resolve those aliases in order to generate a final classes string with conditional joining.
 
+## How It Works
+
+The `aliasClassName` function returned by this module serves as the main interface. It allows you to define aliases and resolve classes using the registered aliases. This utility handles the process of alias resolution and concatenation of classes.
+
 ## Highlights
 
 - Under 1 kB minified & gzipped
 - Typed with TypeScript
 - Fully tested
 - Zero dependencies
-
-## How It Works
-
-The `aliasClassName` function returned by this module serves as the main interface. It allows you to define aliases and resolve classes using the registered aliases. This utility handles the process of alias resolution and concatenation of classes.
 
 ## Installation
 
