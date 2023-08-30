@@ -29,9 +29,11 @@ jobs:
         run: yarn install --frozen-lockfile
       - name: Lint
         run: yarn lint
-      - name: Run tests
-        run: yarn test
-      - name: Run tests
+      - name: Build
         run: yarn build
+      - name: Tests
+        run: yarn test
+      - name: Tests coverage
+        run: yarn coverage
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v2
