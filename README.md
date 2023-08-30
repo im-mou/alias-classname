@@ -15,9 +15,11 @@
 
 # alias-classname
 
-![npm](https://img.shields.io/npm/v/alias-classname)
-![NPM](https://img.shields.io/npm/l/alias-classname)
-![npm bundle size](https://img.shields.io/bundlephobia/min/alias-classname)
+![Build](https://img.shields.io/github/actions/workflow/status/im-mou/alias-classname/ci.yml?branch=master)
+![Test coverage](https://img.shields.io/codecov/c/github/im-mou/alias-classname)
+![npm version](https://img.shields.io/npm/v/alias-classname)
+![npm license](https://img.shields.io/npm/l/alias-classname)
+![Size](https://img.shields.io/badge/dynamic/json?color=blue&label=size&query=$.size.uncompressedSize&url=https://deno.bundlejs.com?q=alias-classname)
 
 A small utility for defining aliases for CSS classes, resolve those aliases in order to generate a final classes string with conditional joining.
 
@@ -85,7 +87,7 @@ npm install alias-classname
    const classes = aliasClassName(
      "base:component",
      "mod:(base)__container",
-     "var:(mod)--variant",
+     "var:(mod)--variant"
    );
 
    const classname = classes("(base)", "(mod)", "(var)");
