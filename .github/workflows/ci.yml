@@ -1,0 +1,35 @@
+name: CI
+on:
+  push:
+    branches:
+      - master
+      - feature/*
+      - fix/*
+      - release/*
+  pull_request:
+    branches:
+      - master
+      - feature/*
+      - fix/*
+      - release/*
+permissions:
+  contents: write
+  pull-requests: write
+jobs:
+  check:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18.4.0
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+      - name: Lint
+        run: yarn lint
+      - name: Run tests
+        run: yarn test
