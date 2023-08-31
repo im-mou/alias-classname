@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.1](https://github.com/im-mou/alias-classname/compare/v0.4.0...v0.4.1) (2023-08-31)
+
+
+### Bug Fixes
+
+* Adds build step in release GH action ([6c4e224](https://github.com/im-mou/alias-classname/commit/6c4e224dc1610ab9ee3ad2d807d64a8a3af780db))
+
 ## [0.4.0](https://github.com/im-mou/alias-classname/compare/v0.3.0...v0.4.0) (2023-08-31)
 
 
